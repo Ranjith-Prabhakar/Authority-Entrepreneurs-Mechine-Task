@@ -14,17 +14,15 @@ export default function useProductSetter() {
     const fetchProducts = async () => {
       try {
         // const data = await getProducts();
-        console.log(dummy);
         const data = dummy;
         dispatch(addAllProducts(data));
-        dispatch(updatePagination());
+        dispatch(updatePagination({ tabNo: 1 }));
         let map = new Map();
         for (let product of data) {
           const count = map.get(product.category) || 0;
           map.set(product.category, count + 1);
         }
         let categories = Array.from(map.entries());
-        console.log("category", categories);
         dispatch(setCategory(categories));
       } catch (error) {
         console.error("Failed to fetch products:", error);

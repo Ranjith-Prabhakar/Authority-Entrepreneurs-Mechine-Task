@@ -7,14 +7,15 @@ import useGetCategories from "../../../../hooks/getCategories";
 export default function () {
   let [on, setOn] = useState(true);
   let categories = useGetCategories();
-  console.log("categories from category", categories);
   return (
     <div className="filter-category-wrapper">
       <Accordion head="Category" on={on} setOn={setOn}>
         <SearchBar />
         <div className="category-list-wrapper">
           {categories &&
-            categories.map((category) => <CategoryList category={category} />)}
+            categories.map((category) => (
+              <CategoryList key={category} category={category} />
+            ))}
         </div>
       </Accordion>
     </div>

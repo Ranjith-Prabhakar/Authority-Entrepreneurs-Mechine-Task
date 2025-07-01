@@ -5,7 +5,6 @@ const initialState = {
   page: "home",
   filter: { category: ["all"], price: [0, 50000], rating: 0 },
   sort: { condition: "popular", order: 1 },
-  pagination: 0,
   allProducts: [],
   productsAfterFilterNSort: [],
   category: [],
@@ -27,11 +26,11 @@ export const productSlice = createSlice({
     filteredProducts: (state, action) => {
       state.productsAfterFilterNSort = action.payload;
     },
-    updatePagination: (state) => {
-      state.pagination += 6;
+    updatePagination: (state, action) => {
+      const lastIndex = action.payload.tabNo * 6;
       const newProductsAfterFilterNSort = state.allProducts.slice(
-        0,
-        state.pagination
+        lastIndex - 6,
+        lastIndex
       );
       state.productsAfterFilterNSort = newProductsAfterFilterNSort;
     },

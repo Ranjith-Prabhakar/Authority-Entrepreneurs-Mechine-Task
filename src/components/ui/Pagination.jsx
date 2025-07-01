@@ -1,10 +1,12 @@
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 import "./pagination.css";
-export default function Pagination({ buttonCount, currentTab = 1 }) {
-  console.log(buttonCount);
+export default function Pagination({
+  paginationHandler,
+  buttonCount,
+  currentTab = 1,
+}) {
   let inputArray = new Array(buttonCount).fill(0);
-  console.log(inputArray);
   return (
     <div className="pagination">
       <div className="pagination-icons">
@@ -13,6 +15,7 @@ export default function Pagination({ buttonCount, currentTab = 1 }) {
       <div className="pagination-nums-tab-wrapper">
         {inputArray.map((_, index) => (
           <div
+            onClick={() => paginationHandler(index + 1)}
             key={index}
             className={`${
               currentTab === index + 1 ? "active" : ""

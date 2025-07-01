@@ -7,8 +7,10 @@ import { useGetProducts } from "../hooks/getProducts";
 import "./homePage.css";
 import SortBar from "../features/SortBar";
 import Pagination from "../components/ui/Pagination";
+import { useSetPagination } from "../hooks/setPagination";
 export default function () {
   let products = useGetProducts();
+  let [paginationHandler] = useSetPagination();
   return (
     <>
       <Hero />
@@ -40,7 +42,7 @@ export default function () {
           </div>
         </div>
         <div className="pagination-wrapper">
-          <Pagination buttonCount={5} />
+          <Pagination paginationHandler={paginationHandler} buttonCount={5} />
         </div>
       </main>
     </>

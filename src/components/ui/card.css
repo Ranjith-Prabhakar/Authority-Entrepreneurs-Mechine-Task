@@ -1,46 +1,101 @@
-.card-wrapper {
-  width: 276px;
-  border-radius: 16.56px;
-  border-width: 1.38px;
-  /* overflow: hidden; */
-  background-color: yellow;
-}
+.card {
+  flex: 0 0 32%;
+  max-width: 32%;
 
-.card-image {
   width: 276px;
-  height: 271px;
-  object-position: center;
-  object-fit: fill;
+  height: 431px;
+  border-radius: 16px;
+  border-width: 1px;
   background-color: #f7f5f7;
+  overflow: hidden;
+  position: relative;
+}
+.card-image {
+  padding: 5px;
+  width: 276px;
+  height: 290px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  object-position: center;
+  object-fit: contain;
 }
 
-.card-title {
+.card-content {
   width: 247px;
   height: 133px;
   top: 284px;
   left: 11px;
+  background: transparent;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
-.card-title h5 {
-  width: 94px;
-  height: 19px;
-  top: 284px;
-  left: 12px;
-  font-family: Inter;
+
+.card-title {
   font-weight: 500;
   font-size: 16px;
   line-height: 100%;
   letter-spacing: 0%;
   color: #667085;
+  background: transparent;
 }
 .card-description {
   width: 246px;
   height: 34px;
-  top: 315px;
-  left: 12px;
-  font-family: Poppins;
   font-weight: 400;
   font-size: 14px;
   line-height: 120%;
   letter-spacing: 0%;
   color: #7b7f86;
+  background: transparent;
+  overflow: hidden;
+}
+.card-price {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 87px;
+  height: 24px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: right;
+  color: #344054;
+  background: transparent;
+}
+.rating-review {
+  background: transparent;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+}
+.rating-review h5 {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 27px;
+  color: #98a2b3;
+  background: transparent;
+}
+
+.wishlist-icon-wrapper {
+  border-radius: 50%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fcfcfd;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  overflow: hidden;
+}
+
+.wishlist-icon {
+  transform: scale(1.5);
+  font-weight: 700;
+  font-size: 20px;
 }

@@ -5,7 +5,8 @@ export default function () {
   return (
     <div className="filter-category-wrapper">
       {/* header drop down */}
-      <PriceFilter />
+      <HeaderDropDown />
+      {/* <PriceFilter /> */}
       {/* search bar */}
     </div>
   );

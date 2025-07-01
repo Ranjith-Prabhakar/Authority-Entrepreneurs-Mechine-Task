@@ -5,10 +5,10 @@ import Hero from "../features/Hero";
 import ProductNavigation from "../features/ProductNavigationBar";
 import { useGetProducts } from "../hooks/getProducts";
 import "./homePage.css";
+import SortBar from "../features/SortBar";
 
 export default function () {
   let products = useGetProducts();
-  useEffect(() => {}, [products]);
   return (
     <>
       <Hero />
@@ -17,22 +17,27 @@ export default function () {
           <ProductNavigation />
         </div>
         <div className="home-page-content-wrapper">
-          <FilterBar />
-
-          {products &&
-            products.map((item, index) => {
-              if (index > 0) return null;
-              else
-                return (
+          <div className="home-page-content-wrapper-left-section">
+            <FilterBar />
+          </div>
+          <div className="home-page-content-wrapper-right-section">
+            {/* SORTBAR */}
+            <SortBar />
+            {/* CARD */}
+            <div className="card-wrapper">
+              {products &&
+                products.map((product) => (
                   <Card
-                    image={item.image}
-                    title={item.title}
-                    description={item.description}
-                    price={item.price}
-                    rating={item.rating}
+                    key={product.title}
+                    image={product.image}
+                    title={product.category}
+                    description={product.description}
+                    price={product.price}
+                    rating={product.rating}
                   />
-                );
-            })}
+                ))}
+            </div>
+          </div>
         </div>
       </main>
     </>

@@ -1,0 +1,55 @@
+.rating-filter-container {
+  border-radius: 16px;
+  padding: 16px;
+  background-color: #fff;
+  width: 300px;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+.rating-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+
+.arrow {
+  font-size: 1.2rem;
+  transform: rotate(180deg);
+}
+
+.rating-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.rating-button {
+  display: flex;
+  align-items: center;
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: white;
+  transition: all 0.2s ease;
+  width: 45%;
+  justify-content: center;
+}
+
+.rating-button.selected {
+  border-color: #2196f3;
+  box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.3);
+}
+
+.star {
+  font-size: 18px;
+  color: #ddd;
+  margin: 0 1px;
+}
+
+.star.filled {
+  color: #f4b400;
+}

@@ -3,7 +3,7 @@ import "./headerDropDown.css";
 export default function () {
   return (
     <div className="filter-rating-header">
-      <div className="">Price</div>
+      <div className="">Rating</div>
       <IoIosArrowDown />
     </div>
   );

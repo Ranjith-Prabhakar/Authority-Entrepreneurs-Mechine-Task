@@ -8,7 +8,10 @@ export default function () {
       <div className="logo">
         <img src={logoImage} alt="logo-image" />
       </div>
-      <SearchBar />
+      <div className="header-search-bar-wrapper">
+        <SearchBar />
+      </div>
+
       <NavBar />
     </header>
   );

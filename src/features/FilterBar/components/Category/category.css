@@ -1,0 +1,6 @@
+.filter-category-wrapper {
+}
+.filter-category-header {
+  display: flex;
+  justify-content: space-between;
+}

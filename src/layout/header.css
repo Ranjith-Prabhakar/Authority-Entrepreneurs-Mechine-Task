@@ -1,0 +1,17 @@
+header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  border: 1px solid black;
+  padding: 20px 120px;
+}
+
+.logo .logo-image {
+  position: relative;
+  width: 90;
+  height: 66;
+  top: 23px;
+  left: 120px;
+}

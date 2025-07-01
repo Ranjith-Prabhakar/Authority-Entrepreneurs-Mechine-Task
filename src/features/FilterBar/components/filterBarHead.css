@@ -1,0 +1,5 @@
+.fiter-bar-head {
+  display: flex;
+  justify-content: space-between;
+  background: transparent;
+}

@@ -1,0 +1,4 @@
+.filter-price-header {
+  display: flex;
+  justify-content: space-between;
+}

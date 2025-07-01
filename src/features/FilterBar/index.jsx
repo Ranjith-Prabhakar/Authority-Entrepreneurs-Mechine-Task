@@ -5,7 +5,7 @@ import Rating from "./components/Rating";
 import "./filterBar.css";
 export default function () {
   return (
-    <div>
+    <div className="fliter-bar-wrapper">
       <FilterBarHead />
       <Category />
       <Price />

@@ -8,6 +8,7 @@ const initialState = {
   pagination: 0,
   allProducts: [],
   productsAfterFilterNSort: [],
+  category: [],
 };
 
 export const productSlice = createSlice({
@@ -16,6 +17,9 @@ export const productSlice = createSlice({
   reducers: {
     addAllProducts: (state, action) => {
       state.allProducts = action.payload;
+    },
+    setCategory: (state, action) => {
+      state.category = action.payload;
     },
     sortedProducts: (state, action) => {
       state.productsAfterFilterNSort = action.payload;
@@ -37,6 +41,7 @@ export const productSlice = createSlice({
 export const {
   addAllProducts,
   updatePagination,
+  setCategory,
   filteredProducts,
   sortedProducts,
 } = productSlice.actions;

@@ -1,11 +1,12 @@
 import { TiTick } from "react-icons/ti";
 import "./categoryList.css";
-export default function ({ title, stock, status }) {
+export default function ({ category }) {
+  console.log("category from list", category);
   return (
     <div className="category-list">
       <div className="category-title-n-stock">
-        <h4>{title}</h4>
-        <p>{stock}</p>
+        <h4>{category[0][0].toUpperCase() + category[0].slice(1)}</h4>
+        <p>{category[1]}</p>
       </div>
       {status && <TiTick />}
     </div>

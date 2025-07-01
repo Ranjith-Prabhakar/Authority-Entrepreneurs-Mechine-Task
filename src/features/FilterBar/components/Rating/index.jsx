@@ -1,48 +1,30 @@
-import HeaderDropDown from "./HeaderDropDown";
-
+import { useState } from "react";
+import Accordion from "../../../../components/ui/Accordion";
+import Rating from "../../../../components/ui/Rating";
+import "./ratingFilter.css";
 export default function () {
+  let [on, setOn] = useState(true);
   return (
-    <div>
-      <HeaderDropDown />
+    <div className="rating-wraper">
+      <Accordion head="Rating" on={on} setOn={setOn}>
+        <div className="rating-filter-container">
+          <div className="rating-stars">
+            <Rating rating={4} />
+          </div>
+          <div className="rating-stars">
+            <Rating rating={5} />
+          </div>
+          <div className="rating-stars">
+            <Rating rating={3} />
+          </div>
+          <div className="rating-stars">
+            <Rating rating={2} />
+          </div>
+          <div className="rating-stars">
+            <Rating rating={1} />
+          </div>
+        </div>
+      </Accordion>
     </div>
   );
 }
-
-// import { useState } from "react";
-// import "./RatingFilter.css";
-
-// const starLevels = [5, 4, 3, 2, 1];
-
-// export default function () {
-//   const [selectedRating, setSelectedRating] = useState(null);
-
-//   const handleClick = (rating) => {
-//     setSelectedRating(rating === selectedRating ? null : rating);
-//   };
-
-//   return (
-//     <div className="rating-filter-container">
-//       <div className="rating-header">
-//         <span>Rating</span>
-//         <span className="arrow">&#8963;</span>
-//       </div>
-//       <div className="rating-options">
-//         {starLevels.map((stars) => (
-//           <div
-//             key={stars}
-//             className={`rating-button ${
-//               selectedRating === stars ? "selected" : ""
-//             }`}
-//             onClick={() => handleClick(stars)}
-//           >
-//             {[...Array(5)].map((_, i) => (
-//               <span key={i} className={`star ${i < stars ? "filled" : ""}`}>
-//                 ★
-//               </span>
-//             ))}
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// }

@@ -6,18 +6,16 @@
 }
 .home-page-content-wrapper {
   display: flex;
-  /* justify-content: space-between; */
   gap: 1rem;
 }
 .home-page-content-wrapper-left-section {
-  background-color: #f9f9f9;
   width: 276px;
+  background-color: #f9f9f9;
   border-radius: 16px;
   padding: 10px;
 }
 .home-page-content-wrapper-right-section {
   flex-grow: 1;
-  background-color: red;
 }
 
 .card-wrapper {

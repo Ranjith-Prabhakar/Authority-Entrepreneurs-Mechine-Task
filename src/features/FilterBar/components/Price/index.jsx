@@ -1,11 +1,13 @@
 import "./price.css";
-import HeaderDropDown from "./HeaderDropDown";
 import PriceFilter from "./PriceFilter";
+import Accordion from "../../../../components/ui/Accordion";
+import { useState } from "react";
 export default function () {
+  let [on, setOn] = useState(true);
   return (
     <div className="filter-category-wrapper">
       {/* header drop down */}
-      <HeaderDropDown />
+      <Accordion head="Price" on={on} setOn={setOn}></Accordion>
       {/* <PriceFilter /> */}
       {/* search bar */}
     </div>

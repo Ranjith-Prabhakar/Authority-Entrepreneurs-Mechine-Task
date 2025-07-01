@@ -13,6 +13,7 @@ export default function Pagination({ buttonCount, currentTab = 1 }) {
       <div className="pagination-nums-tab-wrapper">
         {inputArray.map((_, index) => (
           <div
+            key={index}
             className={`${
               currentTab === index + 1 ? "active" : ""
             } pagination-nums-tab `}

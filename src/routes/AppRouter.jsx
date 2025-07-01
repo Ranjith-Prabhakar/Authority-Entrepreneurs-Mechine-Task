@@ -3,7 +3,7 @@ import { lazy, Suspense, useEffect } from "react";
 import AppLayout from "../layout/AppLayout";
 import HomePage from "../pages/HomePage";
 import useProductSetter from "../hooks/productSetter";
-import Card from "../components/ui/Card";
+import ProductPage from "../pages/ProductPage";
 
 export default function () {
   useProductSetter();
@@ -14,6 +14,7 @@ export default function () {
           <Route element={<AppLayout />}>
             <Route path="/" element={<HomePage />} />
           </Route>
+          <Route path="/product:id" element={<ProductPage />}></Route>
         </Routes>
       </Suspense>
     </BrowserRouter>

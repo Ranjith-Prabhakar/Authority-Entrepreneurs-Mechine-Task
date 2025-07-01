@@ -2,12 +2,7 @@ import "./card.css";
 import Rating from "./Rating";
 import RupeeIcon from "./RupeeIcon";
 import { CiHeart } from "react-icons/ci";
-export default function ({ image, title, description, price, rating }) {
-  console.log(image);
-  console.log(title);
-  console.log(description);
-  console.log(price);
-  console.log(rating);
+export default function Card({ image, title, description, price, rating }) {
   return (
     <div className="card">
       <img className="card-image" src={image} alt="" />

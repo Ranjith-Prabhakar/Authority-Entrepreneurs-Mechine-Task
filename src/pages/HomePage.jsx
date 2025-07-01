@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+/* eslint-disable react-refresh/only-export-components */
 import Card from "../components/ui/Card";
 import FilterBar from "../features/FilterBar";
 import Hero from "../features/Hero";
@@ -6,7 +6,7 @@ import ProductNavigation from "../features/ProductNavigationBar";
 import { useGetProducts } from "../hooks/getProducts";
 import "./homePage.css";
 import SortBar from "../features/SortBar";
-
+import Pagination from "../components/ui/Pagination";
 export default function () {
   let products = useGetProducts();
   return (
@@ -38,6 +38,9 @@ export default function () {
                 ))}
             </div>
           </div>
+        </div>
+        <div className="pagination-wrapper">
+          <Pagination buttonCount={5} />
         </div>
       </main>
     </>

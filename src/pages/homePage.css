@@ -23,6 +23,7 @@
   flex-wrap: wrap;
   width: 100%;
   gap: 20px;
+  padding-top: 30px;
 }
 
 .pagination-wrapper {

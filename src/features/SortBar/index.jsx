@@ -5,7 +5,7 @@ import { useSetSort } from "../../hooks/setSort";
 import { useState } from "react";
 export default function SortBar() {
   let [sortListOn, setSortListOn] = useState(false);
-  let sortHandler = useSetSort();
+  let [sortHandler, sort] = useSetSort();
   return (
     <div className="sorted-bar-wrapper">
       <div className="sorted-bar-wrapper-top-section">
@@ -41,7 +41,7 @@ export default function SortBar() {
         </div>
         <div className="sorted-bar-wrapper-right-section">
           <h5>
-            <span>Sorted by :</span> popular
+            <span>Sorted by :</span> {sort}
           </h5>
         </div>
       </div>

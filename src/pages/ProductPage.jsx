@@ -1,8 +1,11 @@
 import NavigationTracker from "../components/ui/NavigationTracker";
 import DiscountBar from "../features/DiscountBar";
 import ProductHeader from "../layout/ProductHeader";
+import { useLocation } from "react-router-dom";
 
 export default function () {
+  let { id } = useLocation();
+  console.log("id", id);
   return (
     <div className="profile-page-wrapper">
       <DiscountBar />

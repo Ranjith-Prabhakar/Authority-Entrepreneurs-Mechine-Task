@@ -16,12 +16,6 @@ function currentPageProducts(state) {
   let newcurrentPageProducts = [];
 
   if (!filter.category.includes("all")) {
-    // newcurrentPageProducts = allProducts.filter(
-    //   (product) =>
-    //     filter.category.includes(product.category) &&
-    //     product.price > filter.price[0] &&
-    //     product.price < filter.price[1]
-    // );
     newcurrentPageProducts = allProducts.filter(
       (product) =>
         filter.category.includes(product.category) &&
@@ -39,7 +33,7 @@ function currentPageProducts(state) {
   }
 
   state.productsAfterFilterNSort = newcurrentPageProducts;
-  state.currentPageProducts = newcurrentPageProducts.slice(0, 7);
+  state.currentPageProducts = newcurrentPageProducts.slice(0, 6);
   state.currentTab = 1;
 }
 

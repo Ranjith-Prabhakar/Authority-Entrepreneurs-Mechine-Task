@@ -2,16 +2,18 @@ import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 import "./pagination.css";
 import { useState } from "react";
-export default function Pagination({ paginationHandler, buttonCount }) {
-  let [activeTab, setActiveTab] = useState(1);
+export default function Pagination({
+  paginationHandler,
+  buttonCount,
+  currentTab,
+}) {
   let inputArray = new Array(buttonCount).fill(0);
   return (
     <div className="pagination">
       <div
         className="pagination-icons"
         onClick={() => {
-          paginationHandler(activeTab - 1);
-          setActiveTab(activeTab + 1);
+          paginationHandler(currentTab - 1);
         }}
       >
         <IoIosArrowBack />
@@ -22,7 +24,7 @@ export default function Pagination({ paginationHandler, buttonCount }) {
             onClick={() => paginationHandler(index + 1)}
             key={index}
             className={`${
-              activeTab === index + 1 ? "active" : ""
+              currentTab === index + 1 ? "active" : ""
             } pagination-nums-tab `}
           >
             {index + 1}
@@ -32,8 +34,7 @@ export default function Pagination({ paginationHandler, buttonCount }) {
       <div
         className="pagination-icons"
         onClick={() => {
-          paginationHandler(activeTab + 1);
-          setActiveTab(activeTab - 1);
+          paginationHandler(currentTab + 1);
         }}
       >
         <IoIosArrowForward />

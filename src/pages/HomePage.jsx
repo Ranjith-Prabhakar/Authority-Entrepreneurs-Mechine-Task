@@ -10,7 +10,7 @@ import Pagination from "../components/ui/Pagination";
 import { useSetPagination } from "../hooks/setPagination";
 export default function () {
   let products = useGetProducts();
-  let [paginationHandler, totalPage] = useSetPagination();
+  let [paginationHandler, totalPage, currentTab] = useSetPagination();
   return (
     <>
       <Hero />
@@ -45,6 +45,7 @@ export default function () {
           <Pagination
             paginationHandler={paginationHandler}
             buttonCount={totalPage}
+            currentTab={currentTab}
           />
         </div>
       </main>

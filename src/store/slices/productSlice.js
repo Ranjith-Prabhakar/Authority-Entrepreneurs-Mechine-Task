@@ -4,12 +4,38 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   page: "home",
   filter: { category: ["all"], price: [0, 50000], rating: 0 },
-  sort: { condition: "popular", order: 1 },
+  sort: 1,
   allProducts: [],
   productsAfterFilterNSort: [],
+  currentTab: 1,
   currentPageProducts: [],
   category: [],
 };
+function currentPageProducts(state) {
+  let { allProducts, filter, sort } = state;
+  let newcurrentPageProducts = [];
+
+  if (!filter.category.includes("all")) {
+    newcurrentPageProducts = allProducts.filter(
+      (product) =>
+        filter.category.includes(product.category) &&
+        product.price > filter.price[0] &&
+        product.price < filter.price[1]
+    );
+  } else {
+    newcurrentPageProducts = allProducts;
+  }
+
+  if (sort < 0) {
+    newcurrentPageProducts.sort((a, b) => a.price - b.price);
+  } else {
+    newcurrentPageProducts.sort((a, b) => b.price - a.price);
+  }
+
+  state.productsAfterFilterNSort = newcurrentPageProducts;
+  state.currentPageProducts = newcurrentPageProducts.slice(0, 7);
+  state.currentTab = 1;
+}
 
 export const productSlice = createSlice({
   name: "products",
@@ -24,8 +50,9 @@ export const productSlice = createSlice({
     setCategory: (state, action) => {
       state.category = action.payload;
     },
-    sortedProducts: (state, action) => {
-      state.productsAfterFilterNSort = action.payload;
+    updateSort: (state, action) => {
+      state.sort = action.payload;
+      currentPageProducts(state);
     },
     filteredProducts: (state, action) => {
       state.productsAfterFilterNSort = action.payload;
@@ -38,6 +65,7 @@ export const productSlice = createSlice({
         lastIndex
       );
       state.currentPageProducts = newcurrentPageProducts;
+      state.currentTab = action.payload.tabNo;
     },
   },
 });
@@ -47,7 +75,6 @@ export const {
   productsAfterFilterNSort,
   updatePagination,
   setCategory,
-  filteredProducts,
-  sortedProducts,
+  updateSort,
 } = productSlice.actions;
 export default productSlice.reducer;

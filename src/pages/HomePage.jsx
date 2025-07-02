@@ -27,7 +27,7 @@ export default function () {
             <SortBar />
             {/* CARD */}
             <div className="card-wrapper">
-              {products &&
+              {products ? (
                 products.map((product) => (
                   <Card
                     key={product.title}
@@ -37,7 +37,10 @@ export default function () {
                     price={product.price}
                     rating={product.rating}
                   />
-                ))}
+                ))
+              ) : (
+                <h1>No Products Found For This Query!..</h1>
+              )}
             </div>
           </div>
         </div>

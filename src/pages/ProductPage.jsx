@@ -5,7 +5,6 @@ import { useLocation } from "react-router-dom";
 
 export default function () {
   let { id } = useLocation();
-  console.log("id", id);
   return (
     <div className="profile-page-wrapper">
       <DiscountBar />

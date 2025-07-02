@@ -16,9 +16,7 @@ export function useSetPagination() {
 
   const paginationHandler = (tabNo) => {
     const lastIndex = tabNo > 0 ? tabNo * 6 : 1 * 6;
-    console.log("tabNo", tabNo, lastIndex, allProducts.length);
     if (lastIndex < allProducts.length) {
-      console.log("iside");
       dispatch(updatePagination({ lastIndex, tabNo: tabNo > 0 ? tabNo : 1 }));
     }
   };

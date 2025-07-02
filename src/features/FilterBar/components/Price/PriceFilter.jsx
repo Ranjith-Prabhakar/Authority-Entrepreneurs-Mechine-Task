@@ -100,7 +100,7 @@ import { useSetFilter } from "../../../../hooks/setFilter";
 export default function PriceFilter() {
   const setFilter = useSetFilter();
   const MIN_PRICE = 10;
-  const MAX_PRICE = 200;
+  const MAX_PRICE = 5000;
   const MIN_GAP = 5;
 
   const [min, setMin] = useState(MIN_PRICE);

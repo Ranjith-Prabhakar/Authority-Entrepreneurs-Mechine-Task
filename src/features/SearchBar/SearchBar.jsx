@@ -6,7 +6,6 @@ import SearchList from "./SearchList";
 export default function () {
   let [openSearchList, setSearchList] = useState(false);
   let [setValue, products] = useSearchProducts();
-  console.log("produ cts  --", products);
   return (
     <div className="search-bar-wrapper">
       <input

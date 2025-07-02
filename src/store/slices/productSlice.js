@@ -16,11 +16,17 @@ function currentPageProducts(state) {
   let newcurrentPageProducts = [];
 
   if (!filter.category.includes("all")) {
+    // newcurrentPageProducts = allProducts.filter(
+    //   (product) =>
+    //     filter.category.includes(product.category) &&
+    //     product.price > filter.price[0] &&
+    //     product.price < filter.price[1]
+    // );
     newcurrentPageProducts = allProducts.filter(
       (product) =>
         filter.category.includes(product.category) &&
-        product.price > filter.price[0] &&
-        product.price < filter.price[1]
+        Number(product.price) > Number(filter.price[0]) &&
+        Number(product.price) < Number(filter.price[1])
     );
   } else {
     newcurrentPageProducts = allProducts;
@@ -54,8 +60,15 @@ export const productSlice = createSlice({
       state.sort = action.payload;
       currentPageProducts(state);
     },
-    filteredProducts: (state, action) => {
-      state.productsAfterFilterNSort = action.payload;
+    updateFilter: (state, action) => {
+      console.log("inside updateFilete", action.payload);
+      if (action.payload.prop === "category") {
+        state.filter = { ...state.filter, category: action.payload.data };
+        currentPageProducts(state);
+      } else if (action.payload.prop === "price") {
+        state.filter = { ...state.filter, price: action.payload.data };
+        currentPageProducts(state);
+      }
     },
     updatePagination: (state, action) => {
       console.log("inside store", action.payload);
@@ -76,5 +89,6 @@ export const {
   updatePagination,
   setCategory,
   updateSort,
+  updateFilter,
 } = productSlice.actions;
 export default productSlice.reducer;

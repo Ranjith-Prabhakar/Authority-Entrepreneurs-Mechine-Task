@@ -2,8 +2,9 @@
   width: 257px;
   height: 215px;
   border-radius: 16px;
-  overflow: hidden;
+  overflow: scroll;
   padding: 15px 10px;
+  background-color: #ffffff;
 }
 .category-list-wrapper {
   display: flex;

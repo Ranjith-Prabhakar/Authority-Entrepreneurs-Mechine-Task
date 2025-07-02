@@ -4,14 +4,17 @@ import CategoryList from "./CategoryList";
 import Accordion from "../../../../components/ui/Accordion";
 import { useEffect, useState } from "react";
 import useGetCategories from "../../../../hooks/getCategories";
+import { useSetFilter } from "../../../../hooks/setFilter";
 export default function () {
   let [on, setOn] = useState(true);
   let categories = useGetCategories();
   const [selected, setSelected] = useState([]);
+  const setFilter = useSetFilter();
 
   useEffect(() => {
     if (categories.length > 0) {
       setSelected(Array(categories.length).fill(0));
+      // setFilter(selected, "category");
     }
   }, [categories]);
   return (

@@ -7,9 +7,11 @@ export default function FilterBar() {
   return (
     <div className="fliter-bar-wrapper">
       <FilterBarHead />
-      <Category />
-      <Price />
-      <Rating />
+      <div className="category-price-rating-container">
+        <Category />
+        <Price />
+        <Rating />
+      </div>
     </div>
   );
 }

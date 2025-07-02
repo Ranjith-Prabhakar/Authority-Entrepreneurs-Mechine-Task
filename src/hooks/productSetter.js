@@ -6,16 +6,16 @@ import {
   updatePagination,
   setCategory,
 } from "../store/slices/productSlice";
-import { getProducts } from "../services/products";
-// import dummy from "../assets/dummy.json";
+// import { getProducts } from "../services/products";
+import dummy from "../assets/dummy.json";
 export default function useProductSetter() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const data = await getProducts();
-        // const data = dummy;
+        // const data = await getProducts();
+        const data = dummy;
         dispatch(addAllProducts(data));
         dispatch(productsAfterFilterNSort(data));
         dispatch(updatePagination({ lastIndex: 6 }));

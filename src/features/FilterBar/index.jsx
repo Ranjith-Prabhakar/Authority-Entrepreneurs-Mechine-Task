@@ -3,7 +3,7 @@ import FilterBarHead from "./components/FilterBarHead";
 import Price from "./components/Price";
 import Rating from "./components/Rating";
 import "./filterBar.css";
-export default function () {
+export default function FilterBar() {
   return (
     <div className="fliter-bar-wrapper">
       <FilterBarHead />

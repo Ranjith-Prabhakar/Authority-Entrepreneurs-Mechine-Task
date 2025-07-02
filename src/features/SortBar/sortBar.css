@@ -1,5 +1,36 @@
 .sorted-bar-wrapper {
   width: 100%;
-  background-color: blueviolet;
   height: 25px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.sorted-bar-wrapper-top-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sorted-bar-wrapper-left-section {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+  color: #000000;
+}
+.sorted-bar-wrapper-bottom-section {
+  min-height: 1px;
+  opacity: 20%;
+  background-color: #000000;
+  margin-top: 5px;
+}
+.sorted-bar-wrapper-right-section {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 120%;
+}
+
+.sorted-bar-wrapper-right-section h5 span {
+  color: #00000066;
 }

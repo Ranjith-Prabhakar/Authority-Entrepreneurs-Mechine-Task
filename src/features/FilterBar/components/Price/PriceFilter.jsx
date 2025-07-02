@@ -5,7 +5,7 @@ export default function PriceFilter() {
   const MIN_PRICE = 10000;
   const MAX_PRICE = 50000;
 
-  const [min, setMin] = useState(29000);
+  const [min, setMin] = useState(15000);
   const [max, setMax] = useState(29000);
   const rangeRef = useRef(null);
 
@@ -35,28 +35,50 @@ export default function PriceFilter() {
               style={{ height: `${h}px` }}
             />
           ))}
-          <div className="histogram-cross" />
+        </div>
+        <div className="range-slider">
+          <div className="slider-track" ref={rangeRef}></div>
+          <input
+            type="range"
+            min={MIN_PRICE}
+            max={MAX_PRICE}
+            value={min}
+            onChange={(e) =>
+              setMin(Math.min(Number(e.target.value), max - 1000))
+            }
+          />
+          <input
+            type="range"
+            min={MIN_PRICE}
+            max={MAX_PRICE}
+            value={max}
+            onChange={(e) =>
+              setMax(Math.max(Number(e.target.value), min + 1000))
+            }
+          />
+        </div>{" "}
+        <div className="range-slider">
+          <div className="slider-track" ref={rangeRef}></div>
+          <input
+            type="range"
+            min={MIN_PRICE}
+            max={MAX_PRICE}
+            value={min}
+            onChange={(e) =>
+              setMin(Math.min(Number(e.target.value), max - 1000))
+            }
+          />
+          <input
+            type="range"
+            min={MIN_PRICE}
+            max={MAX_PRICE}
+            value={max}
+            onChange={(e) =>
+              setMax(Math.max(Number(e.target.value), min + 1000))
+            }
+          />
         </div>
       </div>
-
-      <div className="range-slider">
-        <div className="slider-track" ref={rangeRef}></div>
-        <input
-          type="range"
-          min={MIN_PRICE}
-          max={MAX_PRICE}
-          value={min}
-          onChange={(e) => setMin(Math.min(Number(e.target.value), max - 1000))}
-        />
-        <input
-          type="range"
-          min={MIN_PRICE}
-          max={MAX_PRICE}
-          value={max}
-          onChange={(e) => setMax(Math.max(Number(e.target.value), min + 1000))}
-        />
-      </div>
-
       <div className="price-values">
         <input readOnly value={`${min.toLocaleString()} INR`} />
         <input readOnly value={`${max.toLocaleString()} INR`} />

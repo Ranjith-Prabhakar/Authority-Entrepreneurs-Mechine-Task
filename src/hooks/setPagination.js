@@ -1,19 +1,25 @@
 import { useSelector } from "react-redux";
 import { updatePagination } from "../store/slices/productSlice";
-
+import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
 export function useSetPagination() {
-  const { productsAfterFilterNSort } = useSelector((state) => state.products);
+  const { allProducts, productsAfterFilterNSort } = useSelector(
+    (state) => state.products
+  );
+  let [totalPage, setTotalPage] = useState(0);
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    setTotalPage(Math.floor(productsAfterFilterNSort.length / 6));
+  }, [productsAfterFilterNSort]);
   const paginationHandler = (tabNo) => {
-    if (tabNo * 6 < productsAfterFilterNSort.length && currentPage > 1) {
-      updatePagination({ tabNo });
+    const lastIndex = tabNo > 0 ? tabNo * 6 : 1;
+    console.log("tabNo", tabNo, lastIndex, allProducts.length);
+    if (lastIndex < allProducts.length) {
+      console.log("iside");
+      dispatch(updatePagination({ lastIndex }));
     }
   };
 
-  const backwardPage = () => {
-    if (currentPage > 1) {
-      updatePagination({ operation: "subtract" });
-    }
-  };
-  return [paginationHandler];
+  return [paginationHandler, totalPage];
 }

@@ -1,38 +1,23 @@
 .price-filter-container {
-  border: 2px solid #1e90ff;
   border-radius: 16px;
   padding: 16px;
-  width: 300px;
-  box-sizing: border-box;
-  font-family: sans-serif;
-}
-
-.price-filter-header {
+  width: 100%;
   display: flex;
-  justify-content: space-between;
-  font-weight: bold;
-  font-size: 1.1rem;
-  margin-bottom: 10px;
-}
-
-.arrow {
-  font-size: 1.2rem;
-  transform: rotate(180deg);
+  flex-direction: column;
 }
 
 .histogram-wrapper {
   position: relative;
-  height: 120px;
-  margin-bottom: 10px;
 }
 
 .histogram {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  height: 100%;
-  width: 100%;
-  position: relative;
+  /* height: 100%; */
+  /* width: 100%; */
+  /* position: relative; */
+  gap: 5px;
 }
 
 .histogram-bar {
@@ -41,29 +26,10 @@
   border-radius: 4px 4px 0 0;
 }
 
-.histogram-cross {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background-color: #2196f366;
-}
-.histogram-cross::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: -60px;
-  right: -60px;
-  height: 2px;
-  background-color: #2196f366;
-  transform: translateY(-50%);
-}
-
 .range-slider {
   position: relative;
-  height: 36px;
-  margin-top: 10px;
+  /* height: 36px;
+  margin-top: 10px; */
 }
 
 .slider-track {
@@ -112,7 +78,7 @@
 .price-values {
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .price-values input {

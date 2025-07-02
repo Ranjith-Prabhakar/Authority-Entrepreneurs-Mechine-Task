@@ -7,6 +7,7 @@ const initialState = {
   sort: { condition: "popular", order: 1 },
   allProducts: [],
   productsAfterFilterNSort: [],
+  currentPageProducts: [],
   category: [],
 };
 
@@ -16,6 +17,9 @@ export const productSlice = createSlice({
   reducers: {
     addAllProducts: (state, action) => {
       state.allProducts = action.payload;
+    },
+    productsAfterFilterNSort: (state, action) => {
+      state.productsAfterFilterNSort = action.payload;
     },
     setCategory: (state, action) => {
       state.category = action.payload;
@@ -27,18 +31,20 @@ export const productSlice = createSlice({
       state.productsAfterFilterNSort = action.payload;
     },
     updatePagination: (state, action) => {
-      const lastIndex = action.payload.tabNo * 6;
-      const newProductsAfterFilterNSort = state.allProducts.slice(
+      console.log("inside store", action.payload);
+      const lastIndex = action.payload.lastIndex;
+      const newcurrentPageProducts = state.productsAfterFilterNSort.slice(
         lastIndex - 6,
         lastIndex
       );
-      state.productsAfterFilterNSort = newProductsAfterFilterNSort;
+      state.currentPageProducts = newcurrentPageProducts;
     },
   },
 });
 
 export const {
   addAllProducts,
+  productsAfterFilterNSort,
   updatePagination,
   setCategory,
   filteredProducts,

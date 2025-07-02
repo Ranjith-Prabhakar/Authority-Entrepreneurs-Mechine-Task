@@ -1,5 +1,6 @@
+/* eslint-disable react-refresh/only-export-components */
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { lazy, Suspense, useEffect } from "react";
+import { Suspense } from "react";
 import AppLayout from "../layout/AppLayout";
 import { Toaster } from "react-hot-toast";
 import HomePage from "../pages/HomePage";
